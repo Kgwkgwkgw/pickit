@@ -3,7 +3,12 @@ spring:
 
   datasource:
     platform: h2
-    #jdbc-url: jdbc:h2:tcp://localhost:9092/./api/data/testdb;
+    # file mode..
+    # jdbc-url: jdbc:h2:tcp://localhost:9092/./api/data/testdb;
+    # 인메모리 모드로 h2를 사용할때, "server" 모드로 띄어야 다른 컴퓨터나 다른 application에서 접근 가능하다.
+    # server mode로 띄우는 이유는
+    # 1. inteliJ의 database client 사용하기 위해 (h2 console(웹)의 기능상 한계성이 있다)
+    # 인메모리 모드일 때는, 어플리케이션 종료와 함께 데이터가 날라간다.
     jdbc-url: jdbc:h2:tcp://localhost:9092/mem:pickit;
     username: sa
     password:
