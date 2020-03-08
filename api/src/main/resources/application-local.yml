@@ -4,7 +4,7 @@ spring:
   datasource:
     platform: h2
     #jdbc-url: jdbc:h2:tcp://localhost:9092/./api/data/testdb;
-    jdbc-url: jdbc:h2:tcp://localhost:9092/mem:testdb;
+    jdbc-url: jdbc:h2:tcp://localhost:9092/mem:pickit;
     username: sa
     password:
     driver-class-name: org.h2.Driver
