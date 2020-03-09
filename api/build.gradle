@@ -37,11 +37,14 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+	// Spring Boot 2.2.X에서 junit5가 기본으로 변경됨.
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
 test {
-	useJUnitPlatform()
+	useJUnitPlatform {
+		// junit4 사용
+		includeEngines 'junit-vintage'
+		excludeEngines 'junit-jupiter'
+	}
 }
