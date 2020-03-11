@@ -1,9 +1,7 @@
 package com.dasangwan.pickit.api.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -14,10 +12,12 @@ import java.time.Instant;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 public class Account {
     @Id
     @GeneratedValue
     private long id;
+    @Column(unique = true)
     private String email;
     private String nickname;
     @Enumerated(EnumType.STRING)
